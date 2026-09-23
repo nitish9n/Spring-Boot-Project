@@ -19,7 +19,7 @@ public class UserService {
 		allUser.put(4, new User(4, "Twinkle", "female", "bxr"));
 	}
 	
-	public User saveUser(User user) {
+	public User saveUser(User user) {   // save user and update if id already exist
 		System.out.println("UserService.saveUser()");
 		allUser.put(user.getId(), user);
 		return user;
@@ -27,6 +27,13 @@ public class UserService {
 	
 	public Map<Integer, User> getAllUser(){
 		System.out.println("UserService.getAllUser()");
+		return allUser;
+	}
+	
+
+	public Map<Integer, User> deleteUser(Integer i) {
+		System.out.println("UserService.deleteUser()");
+		allUser.remove(i);
 		return allUser;
 	}
 	
