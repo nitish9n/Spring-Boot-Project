@@ -1,40 +1,41 @@
 package com.learning.boot.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.learning.boot.dao.UserRepo;
 import com.learning.boot.model.User;
 
 @Service
 public class UserService {
+	@Autowired
+	private UserRepo userRepo;
 	
-	private static HashMap<Integer, User> allUser = new HashMap<>();
-	
-	static {
-		allUser.put(1, new User(1, "Nitish", "male", "bxr"));
-		allUser.put(2, new User(2, "Khushi", "female", "bxr"));
-		allUser.put(3, new User(3, "Muskan", "female", "bxr"));
-		allUser.put(4, new User(4, "Twinkle", "female", "bxr"));
+	public UserService(UserRepo userRepo) {
+		super();
+		this.userRepo = userRepo;
 	}
-	
-	public User saveUser(User user) {   // save user and update if id already exist
+
+	public User saveUser(User user) {  
 		System.out.println("UserService.saveUser()");
-		allUser.put(user.getId(), user);
+		userRepo.save(user);
 		return user;
 	}
 	
-	public Map<Integer, User> getAllUser(){
+	public List<User> getAllUser(){
 		System.out.println("UserService.getAllUser()");
-		return allUser;
+		return userRepo.findAll();
 	}
 	
 
-	public Map<Integer, User> deleteUser(Integer i) {
-		System.out.println("UserService.deleteUser()");
-		allUser.remove(i);
-		return allUser;
-	}
+//	public Map<Integer, User> deleteUser(Integer i) {
+//		System.out.println("UserService.deleteUser()");
+//		allUser.remove(i);
+//		return allUser;
+//	}
 	
 }

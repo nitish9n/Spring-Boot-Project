@@ -1,5 +1,6 @@
 package com.learning.boot.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,21 +28,21 @@ public class UserController {
 	}
 	
 	@PostMapping
-	public User saveUser(@RequestBody User forsave) {   // forsave- it save body come along with request
+	public User saveUser(@RequestBody User forsave) {   
 		System.out.println("UserController.saveUser()");
 		
 		return userService.saveUser(forsave);
 	}
 	
 	@GetMapping("/getAllUser")
-	public Map<Integer, User> getAllUser(){
+	public List<User> getAllUser(){
 		System.out.println("UserController.getAllUser()");
 		return userService.getAllUser();
 	}
 	
-	@DeleteMapping("/deleteUser/{id}")
-	public Map<Integer, User> deleteUser(@PathVariable Integer id) {
-		System.out.println("UserController.deleteUser()");
-	   return userService.deleteUser(id);
-	}
+//	@DeleteMapping("/deleteUser/{id}")
+//	public Map<Integer, User> deleteUser(@PathVariable Integer id) {
+//		System.out.println("UserController.deleteUser()");
+//	   return userService.deleteUser(id);
+//	}
 }
