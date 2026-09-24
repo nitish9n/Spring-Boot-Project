@@ -40,9 +40,9 @@ public class UserController {
 		return userService.getAllUser();
 	}
 	
-//	@DeleteMapping("/deleteUser/{id}")
-//	public Map<Integer, User> deleteUser(@PathVariable Integer id) {
-//		System.out.println("UserController.deleteUser()");
-//	   return userService.deleteUser(id);
-//	}
+	@DeleteMapping("/deleteUser/{id}")
+	public List<User> deleteUser(@PathVariable Integer id) {
+		System.out.println("UserController.deleteUser()");
+	   return userService.deleteUser(id);
+	}
 }

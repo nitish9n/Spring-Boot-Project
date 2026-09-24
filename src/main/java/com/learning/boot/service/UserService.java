@@ -32,10 +32,10 @@ public class UserService {
 	}
 	
 
-//	public Map<Integer, User> deleteUser(Integer i) {
-//		System.out.println("UserService.deleteUser()");
-//		allUser.remove(i);
-//		return allUser;
-//	}
+	public List<User> deleteUser(Integer i) {
+		System.out.println("UserService.deleteUser()");
+		userRepo.deleteById(i);;
+		return userRepo.findAll();
+	}
 	
 }
