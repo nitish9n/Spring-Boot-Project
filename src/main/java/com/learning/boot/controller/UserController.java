@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.learning.boot.model.User;
 import com.learning.boot.service.UserService;
 
-@Controller // ==  @Controller @ResponseBody
+@RestController // ==  @Controller @ResponseBody
 public class UserController {
 	@Autowired
 	private UserService userService;  // dependency
@@ -24,7 +24,7 @@ public class UserController {
 	@GetMapping("/")
 	public String helloUser() {
 		System.out.println("UserController.hello()");
-		return "welcome";
+		return "welcome. This is spring data jpa";
 	}
 	
 	@PostMapping
