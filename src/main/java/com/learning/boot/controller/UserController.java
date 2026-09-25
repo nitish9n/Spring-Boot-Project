@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.learning.boot.model.User;
 import com.learning.boot.service.UserService;
 
-@Controller // ==  @Controller @ResponseBody
+@Controller 
 public class UserController {
 	@Autowired
-	private UserService userService;  // dependency
+	private UserService userService;  
 	
 	@GetMapping("/")
 	public String helloUser() {
